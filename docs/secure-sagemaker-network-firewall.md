@@ -243,22 +243,37 @@ To check your settings, go back to Studio and try to access pypi.org to install 
 !pip install -U scikit-learn
 This command fails with ReadTimeoutError because Network Firewall drops any traffic to any domain not on the allow list (which contains only two domains: .github.com and .kaggle.com).
 
+| |
+| :--: |
+| ![image](https://user-images.githubusercontent.com/8270630/213889408-5304e8a7-0545-491f-9e4b-4f6cf94b9e72.png) |
 
 
 On the Amazon CloudWatch console, navigate to the log group and browse through the recent log streams.
 
+| |
+| :--: |
+| ![image](https://user-images.githubusercontent.com/8270630/213889420-911a39b9-8e2c-42a7-941b-88ad1dec632b.png) |
 
 
 The pipy.org domain shows the blocked action. The log event also provides additional details such as various timestamps, protocol, port and IP details, event type, availability zone, and the firewall name.
 
-
+| |
+| :--: |
+| ![image](https://user-images.githubusercontent.com/8270630/213889435-10c0f3fe-6fca-4796-81a3-5a71e7c06f51.png) |
 
 You can continue experimenting with Network Firewall by adding .pypi.org and .pythonhosted.org domains to the allowed domain list.
 
 
+| |
+| :--: |
+| ![image](https://user-images.githubusercontent.com/8270630/213889443-10060c69-8f32-4b1d-a7c7-b7a6869abd2d.png) |
+
 
 Then validate your access to them via your Studio notebook.
 
+| |
+| :--: |
+| ![image](https://user-images.githubusercontent.com/8270630/213889455-30f9a02c-cf44-4f1d-a979-b81f7afe6079.png) |
 
 
 Additional firewall rules
