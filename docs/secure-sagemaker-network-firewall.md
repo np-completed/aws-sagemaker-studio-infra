@@ -119,6 +119,9 @@ aws cloudformation describe-stacks \
     --query "Stacks[0].Outputs[*].[OutputKey, OutputValue]"
 Launch Studio via the SageMaker console.
 
+| |
+| :--: |
+| ![image](https://user-images.githubusercontent.com/8270630/213889123-14c3ed4b-d573-45c2-bcc3-2157ad11c720.png) |
 
 Experiment with Network Firewall
 Now you can learn how to control the internet inbound and outbound access with Network Firewall. In this section, we discuss the initial setup, accessing resources not on the allow list, adding domains to the allow list, configuring logging, and additional firewall rules.
@@ -126,6 +129,9 @@ Now you can learn how to control the internet inbound and outbound access with N
 Initial setup
 The solution deploys a Network Firewall policy with a stateful rule group with an allow domain list. This policy is attached to the Network Firewall. All inbound and outbound internet traffic is blocked now, except for the .kaggle.com domain, which is on the allow list.
 
+| |
+| :--: |
+| ![image](https://user-images.githubusercontent.com/8270630/213889138-b292abbd-f19a-459b-a4ed-5f09bcacbf9c.png) |
 
 
 Let’s try to access https://kaggle.com by opening a new notebook in Studio and attempting to download the front page from kaggle.com:
@@ -133,6 +139,9 @@ Let’s try to access https://kaggle.com by opening a new notebook in Studio and
 !wget https://kaggle.com
 The following screenshot shows that the request succeeds because the domain is allowed by the firewall policy. Users can connect to this and only to this domain from any Studio notebook.
 
+| |
+| :--: |
+| ![image](https://user-images.githubusercontent.com/8270630/213889155-ffbcde8b-5828-4d97-9782-b3704c99ad51.png) |
 
 
 Access resources not on the allowed domain list
