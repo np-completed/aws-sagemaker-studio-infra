@@ -150,29 +150,46 @@ In the Studio notebook, try to clone any public GitHub repository, such as the f
 !git clone https://github.com/aws-samples/amazon-sagemaker-studio-vpc-networkfirewall.git
 This operation times out after 5 minutes because any internet traffic except to and from the .kaggle.com domain isn’t allowed and is dropped by Network Firewall.
 
+| |
+| :--: | 
+| ![image](https://user-images.githubusercontent.com/8270630/213889188-ceb42fab-cc70-4eeb-88c7-5cdc8baabd51.png) |
 
 
 Add a domain to the allowed domain list
 To be able to run the git clone command, you must allow internet traffic to the .github.com domain.
 
-On the Amazon VPC console, choose Firewall policies.
-Choose the policy network-firewall-policy-<ProjectName>.
+1. On the Amazon VPC console, choose Firewall policies.
+2. Choose the policy network-firewall-policy-<ProjectName>.
+
+| |
+| :--: |
+| ![image](https://user-images.githubusercontent.com/8270630/213889222-656924cb-9766-4abb-b2c8-e4c069edc338.png) |
 
 
-In the Stateful rule groups section, select the group rule domain-allow-sagemaker-<ProjectName>.
+3. In the Stateful rule groups section, select the group rule domain-allow-sagemaker-<ProjectName>.
 
 
 You can see the domain .kaggle.com on the allow list.
 
-Choose Add domain.
+4. Choose Add domain.
+
+| |
+| :--: |
+| ![image](https://user-images.githubusercontent.com/8270630/213889247-21bd3059-2932-4923-9869-0c6b3cff0be6.png) |
 
 
-Enter .github.com.
-Choose Save.
+5. Enter .github.com.
+6. Choose Save.
 
+| |
+| :--: |
+| ![image](https://user-images.githubusercontent.com/8270630/213889267-d399a869-6e54-48ef-8af7-73d457a1273a.png) |
 
 You now have two names on the allow domain list.
 
+| |
+| :--: |
+| ![image](https://user-images.githubusercontent.com/8270630/213889287-d3f6777a-30d2-4a92-996e-2cd4412cd77b.png) |
 
 
 Firewall policy is propagated in real time to Network Firewall and your changes take effect immediately. Any inbound or outbound traffic from or to these domains is now allowed by the firewall and all other traffic is dropped.
@@ -182,6 +199,9 @@ To validate the new configuration, go to your Studio notebook and try to clone t
 !git clone https://github.com/aws-samples/amazon-sagemaker-studio-vpc-networkfirewall.git
 The operation succeeds this time—Network Firewall allows access to the .github.com domain.
 
+| |
+| :--: |
+| ![image](https://user-images.githubusercontent.com/8270630/213889311-418bd2cd-b8d8-4d79-be3b-0756bbc1ef4b.png) |
 
 
 Network Firewall logging
@@ -190,17 +210,32 @@ In this section, you configure Network Firewall logging for your firewall’s st
 On the Amazon VPC console, choose Firewalls.
 Choose your firewall.
 
+| |
+| :--: |
+| ![image](https://user-images.githubusercontent.com/8270630/213889344-3fdbdbee-6de3-4083-90cd-57f32de7159f.png) |
+
 
 Choose the Firewall details tab.
 
+| |
+| :--: |
+| ![image](https://user-images.githubusercontent.com/8270630/213889352-10da6802-f5d5-4a78-bdf9-ac21b0f13b25.png) |
 
 In the Logging section, choose Edit.
+
+| |
+| :--: |
+| ![image](https://user-images.githubusercontent.com/8270630/213889369-9ff00aa7-e1ce-4a97-9898-1c697ddbab07.png) |
 
 
 Configure your firewall logging by selecting what log types you want to capture and providing the log destination.
 For this post, select Alert log type, set Log destination for alerts to CloudWatch Log group, and provide an existing or a new log group where the firewall logs are delivered.
 
 Choose Save.
+
+| |
+| :--: |
+| ![image](https://user-images.githubusercontent.com/8270630/213889384-89116b40-1fdd-4eb6-821f-61a816c3ec6f.png) |
 
 
 To check your settings, go back to Studio and try to access pypi.org to install a Python package:
