@@ -1,0 +1,134 @@
+#!/bin/bash
+
+#############################
+## May need chmod +x file
+##
+## RUN script from R Console
+# system("/home/ELXSJ/geyser_rsconnect/sync.sh")
+#
+# Run from shell
+# bash <filename>
+#
+# Linux (cloud) Prerequisites
+# sudo apt-get install --reinstall ca-certificates
+#
+# git config --global user.email "michael.madsen.ext@bayer.com"
+# git config --global user.name "memadsen"
+#
+## Optional: Reset Gitignore after making changes
+## git rm -r --cached .
+##
+## Run this script in default branch
+## git branch -d <my_feature_branch> ## never do this to main branch!!
+#############################
+
+#!/bin/bash
+
+#############################
+## May need chmod +x file
+##
+## RUN script from R Console
+# system("/home/ELXSJ/geyser_rsconnect/sync.sh")
+#
+# Run from shell
+# bash sync.sh
+
+#sudo apt-get install --reinstall ca-certificates
+#
+## Optional: Reset Gitignore after making changes
+## git rm -r --cached .
+#
+# git config --global user.email "foo_bar@something.com"
+# git config --global user.name " "
+#############################
+
+## Paramaters
+dt=$(date '+%d/%m/%Y %H:%M:%S')
+
+BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+
+
+
+## script
+# echo -e "Hi Hi Hi $(whoami) ----------------------- "
+# echo " "
+
+# Check if remote has changed and need to pull
+changed=0
+git remote update && git status -uno | grep -q 'Your branch is behind' && changed=1
+if [ $changed = 1 ]; then
+    git pull
+    echo " "
+    echo "-------Updated Remote successfully-------";
+else
+    echo " "
+    echo "-------Remote is Up-to-date-------"
+fi
+
+echo "current git branch == $BRANCH"
+read -p "Do you wish to commit changes to repo (yes/no) " yn
+
+case $yn in
+	yes ) echo ok, we will proceed;;
+	no ) echo exiting...;
+		exit;;
+	* ) echo invalid response;
+		exit 1;;
+esac
+
+git add .
+
+git commit -m "$dt ¯\_(ツ)_/¯"
+
+git push #-u origin "$BRANCH"
+
+
+## Uncomment this after merging branch to HEAD
+# git pull
+
+# Check if remote has changed and need to pull
+# changed=0
+# git remote update && git status -uno | grep -q 'Your branch is behind' && changed=1
+# if [ $changed = 1 ]; then
+#     git pull
+#     echo " "
+#     echo "-------Updated successfully-------";
+# else
+#     echo " "
+#     echo "-------Up-to-date-------"
+# fi
+
+
+# Create new branch
+# BRANCH="dev_$USER"
+# echo "my branch name is:"
+# echo "$BRANCH"
+
+# git checkout -b "$BRANCH" main
+
+## Does Branch Exist in local
+# if [ `git branch --list $BRANCH` ]
+# then
+#     echo "Branch name $BRANCH already exists."
+#     git switch $BRANCH
+# else
+#     echo "No $BRANCH in local"
+#     git checkout -b "$BRANCH" main
+# fi
+
+
+###############
+## push local to remote
+##############
+#echo "Git Commit Comments: $1";
+
+# echo " "
+# echo "push local changes to remote"
+# echo "----------- -- -----------"
+# echo " "
+
+# git add .
+
+# git commit -m "$dt ¯\_(ツ)_/¯"
+# # #git commit -m "$1"
+# git push
