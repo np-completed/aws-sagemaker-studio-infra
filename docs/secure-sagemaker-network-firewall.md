@@ -18,9 +18,16 @@ Depending on your security, compliance, and governance rules, you may not need t
 Solution overview
 When you deploy Studio in your VPC, you control how Studio accesses the internet with the parameter AppNetworkAccessType (via the Amazon SageMaker API) or by selecting your preference on the console when you create a Studio domain.
 
+| |
+| :--: |
+| ![image](https://user-images.githubusercontent.com/8270630/213888960-cb7c1066-701f-44f8-97b1-824036b97064.png) |
 
 
 If you select Public internet Only (PublicInternetOnly), all the ingress and egress internet traffic from Amazon SageMaker notebooks flows through an AWS managed internet gateway attached to a VPC in your SageMaker account. The following diagram shows this network configuration.
+
+| |
+| :--: |
+| ![image](https://user-images.githubusercontent.com/8270630/213888980-5591a362-5e2e-4868-b150-440bb2c2de48.png) |
 
 
 
@@ -28,6 +35,9 @@ Studio provides public internet egress through a platform-managed VPC for data s
 
 To use your own control flow for the internet traffic, like a NAT or internet gateway, you must set the AppNetworkAccessType parameter to VpcOnly (or select VPC Only on the console). When you launch your app, this creates an elastic network interface in the specified subnets in your VPC. You can apply all available layers of security control—security groups, network ACLs, VPC endpoints, AWS PrivateLink, or Network Firewall endpoints—to the internal network and internet traffic to exercise fine-grained control of network access in Studio. The following diagram shows the VpcOnly network configuration.
 
+| |
+| :--: |
+| ![image](https://user-images.githubusercontent.com/8270630/213889013-1ed27ee6-0a71-41c1-ad7a-085e72c7cb2b.png) |
 
 
 In this mode, the direct internet access to or from notebooks is completely disabled, and all traffic is routed through an elastic network interface in your private VPC. This also includes traffic from Studio UI widgets and interfaces, such as Experiments, Autopilot, and Model Monitor, to their respective backend SageMaker APIs.
@@ -41,6 +51,9 @@ NAT subnet – Contains a NAT gateway. We use the NAT gateway to access the inte
 Network Firewall subnet – Contains a Network Firewall endpoint. The route tables are configured so that all inbound and outbound external network traffic is routed via Network Firewall. You can configure stateful and stateless Network Firewall policies to inspect, monitor, and control the traffic.
 The following diagram shows the overview of the solution architecture and the deployed components.
 
+| |
+| :--: |
+| ![image](https://user-images.githubusercontent.com/8270630/213889052-2348e2e6-9bcc-43e2-a98f-3be5eee990d0.png) |
 
 VPC resources
 The solution deploys the following resources in your account:
