@@ -1,5 +1,11 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: MIT-0
+#
+# Deploy to s3 bucket
+# make deploy CFN_ARTEFACT_S3_BUCKET=<your s3 bucket name>
+#
+# Deploy to local directory
+# make package LOCAL_ARTEFACT_DIR=<my_directory>
 
 #SHELL := /bin/sh
 PY_VERSION := 3.8
@@ -11,6 +17,8 @@ FUNCTION_DIR := functions
 # CloudFormation deployment variables
 USER = elxsj
 CFN_ARTEFACT_S3_BUCKET ?=
+# CFN_ARTEFACT_S3_BUCKET := sagemaker-studio-856830038219-elxsj
+LOCAL_ARTEFACT_DIR := cfn
 CFN_TEMPLATE_DIR := cfn_templates
 BUILD_DIR := build
 PROJECT_NAME ?= sagemaker-studio-infra
@@ -22,7 +30,7 @@ NAT_GW_SN_CIDR ?= 10.2.2.0/24
 SAGEMAKER_SN_CIDR ?= 10.2.3.0/24
 
 # Stack name used when deploying or deleting the stack
-APP_STACK_NAME ?= sagemaker-studio-demo
+APP_STACK_NAME ?= sagemaker-studio-infra
 
 PYTHON := $(shell /usr/bin/which python$(PY_VERSION))
 
