@@ -11,11 +11,11 @@ Parameters:
   DomainName:
     Description: SageMaker domain name
     Type: String
-    Default: sagemaker-anfw-domain
+    Default: sagemaker-elxsj-domain
   UserProfileName:
     Description: User profile name for the SageMaker domain
     Type: String
-    Default: anfw-user-profile
+    Default: elxsj-user-profile
   VPCCIDR:
     Type: String
     Default: 10.2.0.0/16

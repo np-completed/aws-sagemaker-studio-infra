@@ -125,12 +125,15 @@ To start experimenting with the Network Firewall and stateful rules, you need fi
 1. Clone the GitHub repository:
 ```bash
 git clone https://github.com/aws-samples/amazon-sagemaker-studio-vpc-networkfirewall.git
-cd amazon-sagemaker-studio-vpc-networkfirewall
+
+git clone https://github.com/np-completed/aws-sagemaker-studio-infra
+cd aws-sagemaker-studio-infra
 ```
 
 2. Create an S3 bucket in the Region where you deploy the solution:
 ```bash
 aws s3 mb s3://<your s3 bucket name>
+sagemaker-studio-cloudformation
 ```
 
 You can skip this step if you already have an S3 bucket.

@@ -15,6 +15,9 @@
 # git config --global user.email "michael.madsen.ext@bayer.com"
 # git config --global user.name "memadsen"
 #
+# Fix permission to repo
+#  git remote set-url origin git@github.com-npc:np-completed/aws-sagemaker-studio-infra
+#
 ## Optional: Reset Gitignore after making changes
 ## git rm -r --cached .
 ##
